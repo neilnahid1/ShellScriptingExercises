@@ -1,0 +1,5 @@
+animals,quadroped,cat,dog,cow,rabbit
+animals,biped,chicken,ostrich,kiwi
+animals,sharks,whale shark,hammer head,tiger shark,zebra shark,great white shark
+animals,dolphins,bottle nose,orca,pilot whale
+animax,cartoon,adventure time,rick and morty,invader zim
