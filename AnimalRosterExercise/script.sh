@@ -1,5 +1,17 @@
 #!/bin/sh
-CONTENT=`cat animal_roster.txt` #fetch the content from the file.
+
+#assigns the named arguments to their corresponding variables
+while getopts ":f:c:" opt; do
+  case $opt in
+    f) file="$OPTARG"
+    ;;
+    c) cat="$OPTARG"
+    ;;
+    \?) echo "Invalid option -$OPTARG" >&2
+    ;;
+  esac
+done
+CONTENT="$(cat $file)" #fetch the data from the first argument
 IFS=$'\n' #input field separator.
 for line in $CONTENT;#iterates through each line
 do
@@ -17,9 +29,10 @@ do
         fi
         counter=` expr $counter + 1 `
     done
-    if [ $category == "$1" ]
+    if [ $category == "$cat" ] #determine if the category matches the passed argument
     then
     counter=` expr $counter - 2 ` #subtract by two since the first 2 words are for category and types
     echo "$type count: $counter"
     fi
 done
+exit
